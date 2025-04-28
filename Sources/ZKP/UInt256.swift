@@ -813,52 +813,52 @@ private extension SIMDWrapper where Element == UInt {
 
 /// A 128-bit signed integer, stored as a SIMD vector of words.
 
-@frozen @available(macOS 13.3, *)
-public struct Int128: SIMDWordsInteger, SignedInteger {
-    public typealias Magnitude = UInt128
+// @frozen @available(macOS 13.3, *)
+// public struct Int128: SIMDWordsInteger, SignedInteger {
+//     public typealias Magnitude = UInt128
 
-    public typealias Stride = Self
+//     public typealias Stride = Self
 
-    #if arch(i386) || arch(arm) || arch(arm64_32) || arch(wasm32) || arch(powerpc)
+//     #if arch(i386) || arch(arm) || arch(arm64_32) || arch(wasm32) || arch(powerpc)
 
-        public typealias Vector = SIMD4<UInt>
-    #elseif arch(x86_64) || arch(arm64) || arch(powerpc64) || arch(powerpc64le) || arch(s390x)
+//         public typealias Vector = SIMD4<UInt>
+//     #elseif arch(x86_64) || arch(arm64) || arch(powerpc64) || arch(powerpc64le) || arch(s390x)
 
-        public typealias Vector = SIMD2<UInt>
-    #endif
+//         public typealias Vector = SIMD2<UInt>
+//     #endif
 
-    public var vector: Vector
+//     public var vector: Vector
 
-    @inlinable
-    public init(_ vector: Vector) {
-        self.vector = vector
-    }
-}
+//     @inlinable
+//     public init(_ vector: Vector) {
+//         self.vector = vector
+//     }
+// }
 
 /// A 128-bit unsigned integer, stored as a SIMD vector of words.
 
-@frozen @available(macOS 13.3, *)
-public struct UInt128: SIMDWordsInteger, UnsignedInteger {
-    public typealias Magnitude = Self
+// @frozen @available(macOS 13.3, *)
+// public struct UInt128: SIMDWordsInteger, UnsignedInteger {
+//     public typealias Magnitude = Self
 
-    @available(macOS 13.3, *)
-    public typealias Stride = Int128
+//     @available(macOS 13.3, *)
+//     public typealias Stride = Int128
 
-    #if arch(i386) || arch(arm) || arch(arm64_32) || arch(wasm32) || arch(powerpc)
+//     #if arch(i386) || arch(arm) || arch(arm64_32) || arch(wasm32) || arch(powerpc)
 
-        public typealias Vector = SIMD4<UInt>
-    #elseif arch(x86_64) || arch(arm64) || arch(powerpc64) || arch(powerpc64le) || arch(s390x)
+//         public typealias Vector = SIMD4<UInt>
+//     #elseif arch(x86_64) || arch(arm64) || arch(powerpc64) || arch(powerpc64le) || arch(s390x)
 
-        public typealias Vector = SIMD2<UInt>
-    #endif
+//         public typealias Vector = SIMD2<UInt>
+//     #endif
 
-    public var vector: Vector
+//     public var vector: Vector
 
-    @inlinable
-    public init(_ vector: Vector) {
-        self.vector = vector
-    }
-}
+//     @inlinable
+//     public init(_ vector: Vector) {
+//         self.vector = vector
+//     }
+// }
 
 //===----------------------------------------------------------------------===//
 
@@ -868,95 +868,95 @@ public struct UInt128: SIMDWordsInteger, UnsignedInteger {
 
 /// A 256-bit signed integer, stored as a SIMD vector of words.
 
-@frozen @available(macOS 13.3, *)
-public struct Int256: SIMDWordsInteger, SignedInteger {
-    public typealias Magnitude = UInt256
+// @frozen @available(macOS 13.3, *)
+// public struct Int256: SIMDWordsInteger, SignedInteger {
+//     public typealias Magnitude = UInt256
 
-    public typealias Stride = Self
+//     public typealias Stride = Self
 
-    #if arch(i386) || arch(arm) || arch(arm64_32) || arch(wasm32) || arch(powerpc)
+//     #if arch(i386) || arch(arm) || arch(arm64_32) || arch(wasm32) || arch(powerpc)
 
-        public typealias Vector = SIMD8<UInt>
-    #elseif arch(x86_64) || arch(arm64) || arch(powerpc64) || arch(powerpc64le) || arch(s390x)
+//         public typealias Vector = SIMD8<UInt>
+//     #elseif arch(x86_64) || arch(arm64) || arch(powerpc64) || arch(powerpc64le) || arch(s390x)
 
-        public typealias Vector = SIMD4<UInt>
-    #endif
+//         public typealias Vector = SIMD4<UInt>
+//     #endif
 
-    public var vector: Vector
+//     public var vector: Vector
 
-    @inlinable
-    public init(_ vector: Vector) {
-        self.vector = vector
-    }
-}
+//     @inlinable
+//     public init(_ vector: Vector) {
+//         self.vector = vector
+//     }
+// }
 
 /// A 256-bit unsigned integer, stored as a SIMD vector of words.
 
-@frozen @available(macOS 13.3, *)
-public struct UInt256: SIMDWordsInteger, UnsignedInteger {
-    public typealias Magnitude = Self
+// @frozen @available(macOS 13.3, *)
+// public struct UInt256: SIMDWordsInteger, UnsignedInteger {
+//     public typealias Magnitude = Self
 
-    public typealias Stride = Int256
+//     public typealias Stride = Int256
 
-    #if arch(i386) || arch(arm) || arch(arm64_32) || arch(wasm32) || arch(powerpc)
+//     #if arch(i386) || arch(arm) || arch(arm64_32) || arch(wasm32) || arch(powerpc)
 
-        public typealias Vector = SIMD8<UInt>
-    #elseif arch(x86_64) || arch(arm64) || arch(powerpc64) || arch(powerpc64le) || arch(s390x)
+//         public typealias Vector = SIMD8<UInt>
+//     #elseif arch(x86_64) || arch(arm64) || arch(powerpc64) || arch(powerpc64le) || arch(s390x)
 
-        public typealias Vector = SIMD4<UInt>
-    #endif
+//         public typealias Vector = SIMD4<UInt>
+//     #endif
 
-    public var vector: Vector
+//     public var vector: Vector
 
-    @inlinable
-    public init(_ vector: Vector) {
-        self.vector = vector
-    }
-}
+//     @inlinable
+//     public init(_ vector: Vector) {
+//         self.vector = vector
+//     }
+// }
 
-@available(macOS 13.3, *)
-extension UInt256.Vector: Sequence {
-    public func makeIterator() -> Iterator {
-        Iterator(self)
-    }
+// @available(macOS 13.3, *)
+// extension UInt256.Vector: Sequence {
+//     public func makeIterator() -> Iterator {
+//         Iterator(self)
+//     }
 
-    public struct Iterator: IteratorProtocol {
-        private let vector: UInt256.Vector
-        private var index = 0
+//     public struct Iterator: IteratorProtocol {
+//         private let vector: UInt256.Vector
+//         private var index = 0
 
-        init(_ vector: UInt256.Vector) {
-            self.vector = vector
-        }
+//         init(_ vector: UInt256.Vector) {
+//             self.vector = vector
+//         }
 
-        public mutating func next() -> UInt256? {
-            guard index < vector.scalarCount else {
-                return nil
-            }
+//         public mutating func next() -> UInt256? {
+//             guard index < vector.scalarCount else {
+//                 return nil
+//             }
 
-            let result = vector[index]
-            index += 1
+//             let result = vector[index]
+//             index += 1
 
-            return UInt256(result)
-        }
-    }
-}
+//             return UInt256(result)
+//         }
+//     }
+// }
 
-@available(macOS 13.3, *)
-extension UInt256: RawRepresentable {
-    public typealias RawValue = Data
+// @available(macOS 13.3, *)
+// extension UInt256: RawRepresentable {
+//     public typealias RawValue = Data
 
-    public init(rawValue data: Data) {
-        let value = data.withUnsafeBytes {
-            $0.load(as: UInt256.self)
-        }
-        self = value.bigEndian
-    }
+//     public init(rawValue data: Data) {
+//         let value = data.withUnsafeBytes {
+//             $0.load(as: UInt256.self)
+//         }
+//         self = value.bigEndian
+//     }
 
-    public var rawValue: Data {
-        let hexData = words.reduce(Data(capacity: Self.bitWidth / 8)) { accumulator, word in
-            withUnsafeBytes(of: word.bigEndian) { Data($0) } + accumulator
-        }
+//     public var rawValue: Data {
+//         let hexData = words.reduce(Data(capacity: Self.bitWidth / 8)) { accumulator, word in
+//             withUnsafeBytes(of: word.bigEndian) { Data($0) } + accumulator
+//         }
 
-        return hexData
-    }
-}
+//         return hexData
+//     }
+// }
