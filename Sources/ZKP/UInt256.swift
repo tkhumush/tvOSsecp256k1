@@ -95,33 +95,33 @@ public extension SIMDWordsInteger {
     /// exactly.
     ///
     /// - Parameter source: An immutable arbitrary-precision signed integer.
-    @available(macOS 13.3, *)
-    init?(exactly source: StaticBigInt) {
-        if source.signum() == 0 {
-            self = .zero
-        } else {
-            if Self.isSigned {
-                guard source.bitWidth <= Self.bitWidth else { return nil }
-            } else {
-                guard source.bitWidth <= Self.bitWidth + 1 else { return nil }
-                guard source.signum() >= 0 else { return nil }
-            }
-            self.init(truncatingIfNeeded: source)
-        }
-    }
+    // @available(macOS 13.3, *)
+    // init?(exactly source: StaticBigInt) {
+    //     if source.signum() == 0 {
+    //         self = .zero
+    //     } else {
+    //         if Self.isSigned {
+    //             guard source.bitWidth <= Self.bitWidth else { return nil }
+    //         } else {
+    //             guard source.bitWidth <= Self.bitWidth + 1 else { return nil }
+    //             guard source.signum() >= 0 else { return nil }
+    //         }
+    //         self.init(truncatingIfNeeded: source)
+    //     }
+    // }
 
     /// Creates a new instance from the *bit pattern* of the given integer, by
     /// truncating or sign extending its binary representation to fit this type.
     ///
     /// - Parameter source: An immutable arbitrary-precision signed integer.
-    @available(macOS 13.3, *)
-    init(truncatingIfNeeded source: StaticBigInt) {
-        var vector = Vector.zero
-        for index in vector.indices {
-            vector[index] = source[index]
-        }
-        self.init(vector)
-    }
+    // @available(macOS 13.3, *)
+    // init(truncatingIfNeeded source: StaticBigInt) {
+    //     var vector = Vector.zero
+    //     for index in vector.indices {
+    //         vector[index] = source[index]
+    //     }
+    //     self.init(vector)
+    // }
 }
 
 extension SIMDWordsInteger {
@@ -400,14 +400,14 @@ public extension SIMDWordsInteger {
 
 //===----------------------------------------------------------------------===//
 
-public extension SIMDWordsInteger {
-    @available(macOS 13.3, *)
-    init(integerLiteral source: StaticBigInt) {
-        self = Self(exactly: source) ?? {
-            preconditionFailure("integer overflow: '\(source)' as '\(Self.self)'")
-        }()
-    }
-}
+// public extension SIMDWordsInteger {
+//     @available(macOS 13.3, *)
+//     init(integerLiteral source: StaticBigInt) {
+//         self = Self(exactly: source) ?? {
+//             preconditionFailure("integer overflow: '\(source)' as '\(Self.self)'")
+//         }()
+//     }
+// }
 
 //===----------------------------------------------------------------------===//
 
